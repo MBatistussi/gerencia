@@ -4,13 +4,14 @@ jdk:
  
  script:
  - mvn install -DskipTests=false
-- git log origin/master.. --stat
+ - git log origin/master.. --stat
 
 after_success:
 - git tag -a build_%{build_number}
 notifications: 
  email: 
 - leyenasd@gmail.com
+
 deploy:
  provider: heroku
  api-key:"82544c97-bc53-4b59-98f3-d63973c62c51"
