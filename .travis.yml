@@ -1,6 +1,6 @@
-language: java
-jdk:
- -openjdk7
+ language: java
+ jdk:
+ - oraclejdk8
  script:
   - mvn install -DskipTests=false
   - git log origin/master.. --stat
