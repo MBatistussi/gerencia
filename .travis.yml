@@ -13,5 +13,5 @@
   - git tag -a build_%{build_number}
  deploy:
   provider: heroku
-  api-key: "82544c97-bc53-4b59-98f3-d63973c62c51"
+  api-key: "763620ad-1fa9-4aca-a0f7-0603f4f4e60c"
  
