@@ -1,8 +1,8 @@
  language: java
- jdk:
+ install: true
  - oraclejdk8
  script:
-  - mvn install -DskipTests=false
+  - mvn install -DskipTests=true
   - git log origin/master.. --stat
   - sudo apt-get install phantomjs
   - git clone --depth=1 https://github.com/n1k0/casperjs.git /tmp/casperjs
