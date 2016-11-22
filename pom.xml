@@ -39,7 +39,7 @@
 			<artifactId>maven-compiler-plugin</artifactId>
 			<version>3.0</version>
 			<configuration>
-				<webXml>src\main\webapp\WEB-INF\web.xml</webXml>
+				<webxml>src\main\webapp\WEB-INF\web.xml</webxml>
 			<source>1.8</source>
 			<target>1.8</target>
 			</configuration>
