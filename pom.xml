@@ -52,6 +52,14 @@
     <failOnMissingWebXml>false</failOnMissingWebXml>
   </configuration>
 </plugin>
+	    <plugin>
+    <groupId>org.eluder.coveralls</groupId>
+    <artifactId>coveralls-maven-plugin</artifactId>
+    <version>4.3.0</version>
+    <configuration>
+        <repoToken>AFOYPWrMhHO1K6ESqyfJ0FyynGpsh8C8P </repoToken>
+    </configuration>
+</plugin>
 	   
 	</plugins>
   </build>
