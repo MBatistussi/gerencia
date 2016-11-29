@@ -51,9 +51,9 @@ public class MesasMB {
 		mesas.forEach(key -> { if(key.getNumero() == mesa.getNumero()) exist = true; });
 		
 		if(exist){
-			error("Já existem uma mesa com esse número");
+			error("Ja existe uma mesa com esse numero");
 		} else if (mesa.getCapacidade() <= 0) {
-			error("Capacidade inválida, coloque um valor maior que 0");
+			error("Capacidade invalida, coloque um valor maior que 0");
 		} else {
 			mesa.setSituacao("normal");
 			mesa.setHorarioAbertura(new Date(1));
