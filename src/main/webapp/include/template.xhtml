@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title>Cadastro de contatos</title>
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css"
+		integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj"
+		crossorigin="anonymous" />
+</h:head>
+<h:body >
+
+	<nav class="navbar navbar-dark navbar-fixed-top" style="background-color:#3498DB;">
+      <button type="button" class="navbar-toggler hidden-sm-up" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation"></button>
+      <a class="navbar-brand" href="#">Smart Waiter</a>
+      <div id="navbar">
+        <nav class="nav navbar-nav float-xs-left">
+          <h:link class="nav-item nav-link" value="Help" outcome="/interna/home" />
+        </nav>
+      </div>
+    </nav>
+    
+    <div class="container-fluid">
+
+		<div class="row">
+			<div class="col-md-2 sidebar">
+				<div id="sidebar-wrapper" class="sidebar-toggle">
+					<ul class="nav sidebar-nav">
+						<h:form>
+						<li><h:link class="nav-link" value="Home" outcome="/interna/home" /></li>
+				    	<li><h:link class="nav-link" value="Mesas" outcome="/interna/mesa/list" /></li>
+				    	<li><h:link class="nav-link" value="Cardápio" outcome="/interna/menu/list" /></li>
+				    	<li><h:link class="nav-link" value="Pedido" outcome="/interna/pedido/list" /></li>
+				    	<li><h:link class="nav-link" value="Críticas e sugestões" outcome="/interna/feedback/list" /></li>
+				    	<!--   <li><h:link class="nav-link" value="Estatística" outcome="/interna/statistics/list" /></li>-->
+				    	<li><h:link class="nav-link" value="Perfil do estabelecimento" outcome="/interna/profile/list" /></li>		
+						</h:form>
+				  	</ul>
+		  		</div>
+			</div>
+			
+			<div class="col-md-10 vcenter">
+			
+				<ui:insert name="conteudo">Conteúdo</ui:insert>
+				
+			</div>
+		
+		</div>
+			
+	
+	</div>
+
+<style>
+
+body {
+	background-color: #ECF0F1;
+	padding-top: 56.5px;
+}
+
+#sidebar-wrapper {
+  top: 52px;
+  left: -200px;
+  width: 240px;
+  background-color: #34495E;
+  color: white;
+  position: fixed;
+  height: 100%;
+  z-index: 1;
+}
+.sidebar-nav {
+  position: absolute;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sidebar-nav li {
+  text-indent: 20px;
+  line-height: 50px;
+}
+.sidebar-nav li a {
+  color: #f5f5f5;
+  display: block;
+  width: 240px;
+  text-decoration: none;
+}
+.sidebar-nav li a:hover {
+  background-color: #2E4054;
+  color: white;
+  text-decoration: none;
+}
+.sidebar-nav li a:active, .sidebar-nav li a:focus {
+  text-decoration: none;
+}
+#sidebar-wrapper.sidebar-toggle {
+  transition: all 0.3s ease-out;
+  margin-left: -200px;
+}
+@media (min-width: 768px) {
+  #sidebar-wrapper.sidebar-toggle {
+    transition: 0s;
+    left: 200px;
+  }
+}
+
+</style>
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"
+		integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js"
+		integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js"
+		integrity="sha384-VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU"
+		crossorigin="anonymous"></script>
+</h:body>
+</html>
