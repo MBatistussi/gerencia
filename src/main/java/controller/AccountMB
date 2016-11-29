@@ -1,0 +1,61 @@
+package controller;
+
+import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import javax.inject.Inject;
+
+import dao.EstabelecimentoDao;
+import domain.Estabelecimento;
+
+@ManagedBean
+@SessionScoped
+public class AccountMB {
+
+	private Estabelecimento estabelecimento;
+	@Inject private EstabelecimentoDao estabelecimentoDao;
+	
+	public AccountMB(){
+		
+		estabelecimento = new Estabelecimento();
+		
+	}
+	
+	public String saveEstablishment(){
+		
+		estabelecimentoDao.inserir(estabelecimento);
+		
+		estabelecimento = new Estabelecimento();
+		
+		return "login";
+	}
+	
+	public String checkEstablishment(){
+		
+		Estabelecimento estabelecimentoBD = estabelecimentoDao.findByCodIdentificacao(estabelecimento.getCodIdentificacao());
+		
+		if( estabelecimentoBD == null ){
+			FacesMessage msg = new FacesMessage("Usuário não cadastrado!");
+			msg.setSeverity(FacesMessage.SEVERITY_ERROR);
+			FacesContext.getCurrentInstance().addMessage("", msg);
+			return null;
+		} else if (estabelecimentoBD.getCodIdentificacao().equals(estabelecimento.getCodIdentificacao())) {
+			return "/interna/home";
+		} 
+		
+		return null;
+		
+	}
+
+	public Estabelecimento getEstabelecimento() {
+		return estabelecimento;
+	}
+
+	public void setEstabelecimento(Estabelecimento estabelecimento) {
+		this.estabelecimento = estabelecimento;
+	}
+	
+	
+	
+}
