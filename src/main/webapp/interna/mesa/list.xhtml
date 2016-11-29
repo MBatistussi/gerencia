@@ -1,0 +1,65 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/include/template.xhtml">
+	<ui:define name="conteudo">
+	
+	<h:form>
+	
+		<h:messages class="alert alert-danger" id="messages" />
+	
+		<h:dataTable value="#{mesasMB.list()}" var="o"
+    			styleClass="table table-striped"
+    			headerClass="order-table-header"
+    			rowClasses="order-table-odd-row,order-table-even-row">
+
+    			<h:column>
+    				<f:facet name="header">Número</f:facet>
+    				#{o.numero}
+    			</h:column>
+    			
+    			<h:column>
+    			
+    				<f:facet name="header">QR code</f:facet>
+    		
+   					<!-- Small modal --> 
+    				<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Ver QRcode</button> 
+    				<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"> 
+	    				<div class="modal-dialog modal-sm"> 
+	    					<div class="modal-content"> 
+	    						<h:graphicImage value="/images/qrcode.png" width="300px" height="300px"/>
+	    					</div> 
+	    				</div> 
+    				</div>
+    				
+    				
+    			</h:column>
+    			
+    			<h:column>
+    				<f:facet name="header">Capacidade</f:facet>
+    				#{o.capacidade}
+    			</h:column>
+    			
+    			<h:column>
+    				<f:facet name="header">Pedido</f:facet>
+    				<h:link class="btn btn-outline-primary" value="#{o.situacao}" outcome="/interna/pedido/list" /> 
+    				   
+    			</h:column>
+    			
+    			<h:column>
+    				<f:facet name="header">Apagar</f:facet>
+    				
+   					<h:commandButton class="btn btn-danger" action="#{mesasMB.remove(o.idMesa)}" value="Remover" />    
+    				
+    			</h:column>
+
+    		</h:dataTable>
+   	</h:form>	
+  	
+	<h:form>
+		<h:commandButton class="btn btn-primary" action="#{mesasMB.create}" value="Cadastrar" />    			
+	</h:form>
+
+	</ui:define>
+</ui:composition>

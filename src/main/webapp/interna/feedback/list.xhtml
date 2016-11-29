@@ -1,0 +1,31 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	template="/include/template.xhtml">
+	<ui:define name="conteudo">
+		<h:form>
+			
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<ui:repeat value="#{criticaMB.list()}" var="criticaVar" varStatus="loop">
+					<div class=" card card-block text-xs-center">
+						<h4 class="card-title">Mesa #{criticaVar.idMesa}</h4>
+						<h5 class="card-text">Pergunta: #{criticaVar.pergunta}</h5>
+						<h6 class="card-text">Avaliação: #{criticaVar.avaliacao}</h6>
+						<h6 class="card-text">Resposta: #{criticaVar.resposta}</h6>
+						<div class="form-group">
+							<label >Digite a resposta</label>
+							<h:inputTextarea type="email" class="form-control" placeholder="Enter email" value="#{criticaMB.resposta[loop.index]}"/>
+						</div>
+						<br/>
+						<h:commandButton class="btn btn-primary" value="Enviar resposta" action="#{criticaMB.sendAnswer(criticaVar.idCritica, loop.index)}" />
+					</div>
+				</ui:repeat>
+			</div>
+			<div class="col-md-2"></div>
+
+		</h:form>
+	</ui:define>
+</ui:composition>

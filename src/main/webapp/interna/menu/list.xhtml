@@ -1,0 +1,51 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/include/template.xhtml">
+	<ui:define name="conteudo">
+	
+	<h:form>
+	
+		<h:messages class="alert alert-danger" role="alert" />
+	
+		<h:dataTable value="#{menuMB.list()}" var="category"
+    			styleClass="table table-striped"
+    			headerClass="order-table-header"
+    			rowClasses="order-table-odd-row,order-table-even-row">
+
+    			<h:column>
+    				<f:facet name="header">Nome</f:facet>
+    				<h2>#{category.nome}</h2>
+    			</h:column> 
+    			    		
+			    <h:column>
+			    	<f:facet name="header">Descrição</f:facet>
+    				<h6>#{category.descricao}</h6>
+    			</h:column>
+    			    			
+    			<h:column>
+    				<h:commandButton class="btn btn-info" action="#{menuMB.goSubmenu()}" value="Ver Itens" >
+    					<f:param name="id" value="#{category.idCategoria}" />
+    				</h:commandButton>    
+    			</h:column>
+    			
+    			<h:column>
+    				<h:commandButton class="btn btn-info" action="#{menuMB.goEdit()}" value="Editar" >
+    					<f:param name="id" value="#{category.idCategoria}" />
+    				</h:commandButton>    
+    			</h:column>
+    			
+    			<h:column>
+    				<h:commandButton class="btn btn-danger" action="#{menuMB.remove(category.idCategoria)}" value="Remover" />    
+    			</h:column>
+
+    		</h:dataTable>
+   	</h:form>	
+  	
+	<h:form>
+		<h:commandButton class="btn btn-primary" action="#{menuMB.create}" value="Criar nova categoria" />    			
+	</h:form>
+
+	</ui:define>
+</ui:composition>

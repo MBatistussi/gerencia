@@ -1,0 +1,20 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/include/template.xhtml">
+	<ui:define name="conteudo">
+
+		<div class="col-md-4"></div>
+		<div class="col-md-4 card card-block text-xs-center">
+			<h4 class="card-title">#{estabelecimentoMB.estabelecimento.name}</h4>
+			<p class="card-text">#{estabelecimentoMB.estabelecimento.descricao}</p>
+			<ul class="list-group">
+				<li class="list-group-item">Horário de funcionamento: #{estabelecimentoMB.estabelecimento.horario}</li>
+				<li class="list-group-item">Formas de pagamento: #{estabelecimentoMB.estabelecimento.formaDePagamento}</li>
+			</ul>
+		</div>
+		<div class="col-md-4"></div>
+
+	</ui:define>
+</ui:composition>

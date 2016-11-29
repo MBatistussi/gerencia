@@ -1,0 +1,30 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	template="/include/template.xhtml">
+	<ui:define name="conteudo">
+	
+	<h:form>
+	
+		<ui:repeat value="#{pedidoMB.list()}" var="pedido">
+		    <div class="card card-block text-xs-center"> 
+				<h4 class="card-title">Mesa #{pedido.mesa.idMesa}</h4> 
+				<h5 class="card-title">Status do pedido: #{pedido.situacao}</h5> 
+				<p class="card-text">Alterações: #{pedido.alteracao}</p> 
+				<ul class="list-group"> 
+					<li class="list-group-item">#{pedido.descricao}</li>
+				</ul>
+				<br/>
+				<h:commandButton style="margin-right:5px;" class="btn btn-primary" action="#{pedidoMB.aceitarPedido(pedido.idPedido)}" value="Aceitar Pedido" />
+				<h:commandButton style="margin-right:5px" class="btn btn-danger" action="#{pedidoMB.cancelarPedido(pedido.idPedido)}" value="Recusar Pedido" />  
+				<h:commandButton class="btn btn-primary" action="#{pedidoMB.fecharPedido(pedido.idPedido)}" value="Pedido enviado" />  
+			</div>
+		</ui:repeat>
+	
+	</h:form>
+	
+	</ui:define>
+</ui:composition>
+

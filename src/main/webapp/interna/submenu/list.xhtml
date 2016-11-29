@@ -1,0 +1,64 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/include/template.xhtml">
+	<ui:define name="conteudo">
+	
+	<f:metadata>
+	    <f:event type="preRenderView" listener="#{subMenuMB.setIdParamCategoria(param['id'])}"/>    
+	</f:metadata>
+	
+	<h:form>
+	
+		<h:dataTable value="#{subMenuMB.list()}" var="refeicao"
+    			styleClass="table table-striped"
+    			headerClass="order-table-header"
+    			rowClasses="order-table-odd-row,order-table-even-row">
+
+   			<h:column>
+   				<f:facet name="header">Refeições</f:facet>
+   				<h2>#{refeicao.nome}</h2>
+   			</h:column>
+   			
+   			<h:column>
+   				<f:facet name="header">Ingredientes</f:facet>
+   				<h6>#{refeicao.ingredientes}</h6>
+   			</h:column>
+   			
+   			<h:column>
+   				<f:facet name="header">Preço</f:facet>
+   				<h6>#{refeicao.preco}</h6>
+   			</h:column>
+   			
+   			<h:column>
+   				<f:facet name="header">Descrição</f:facet>
+   				<h6>#{refeicao.descricao}</h6>
+   			</h:column>
+   			
+   			<h:column>
+   				<h:commandButton class="btn btn-info" action="#{subMenuMB.goEdit()}" value="Editar" >
+   					<f:param name="id" value="#{refeicao.idRefeicao}" />
+   				</h:commandButton>    
+   			</h:column>
+   			
+   			<h:column>
+   				<f:facet name="header">Remoção</f:facet>
+   				<h:commandButton class="btn btn-primary" action="#{subMenuMB.remove(refeicao.idRefeicao)}" value="Remover" >
+					<f:param name="id" value="#{subMenuMB.refeicao.idCategoria}" />
+				</h:commandButton>  
+   			</h:column>
+
+   		</h:dataTable>
+    		
+   	</h:form>		
+   			
+   	<h:form>
+   		<h:messages class="alert alert-success" role="alert" />
+		<h:commandButton class="btn btn-primary" action="#{subMenuMB.create()}" value="Criar novo item" >
+			<f:param name="id" value="#{subMenuMB.refeicao.idCategoria}" />
+		</h:commandButton>
+   	</h:form>
+
+	</ui:define>
+</ui:composition>
