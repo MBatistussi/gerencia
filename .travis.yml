@@ -11,7 +11,7 @@
    - mvn clean install -Pqulice --batch-mode --errors
  after_success:
   - git tag -a build_%{build_number}
-  - mvn clean cobertura:cobertura coveralls:cobertura
+   - mvn clean cobertura:cobertura coveralls:report
   
  notifications:
   email:
