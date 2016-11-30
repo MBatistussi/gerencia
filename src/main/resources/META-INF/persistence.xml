@@ -16,4 +16,21 @@ http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 		
 	</properties>
 	</persistence-unit>
+	
+<persistence-unit name="jpa_hibernate_db -pu" transaction-type="RESOURCE_LOCAL">
+	 <provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+	 <properties>
+	 <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+	 <property name="javax.persistence.jdbc.url" value="jdbc:postgres://etuweffihvejrr:zquVfVZljuNynoiZdHNncW6Zcb@ec2-23-23-226-24.compute-1.amazonaws.com:5432/daao94omv9b2fn" ></property>
+	 <property name="javax.persistence.jdbc.user" value="etuweffihvejrr" />
+	 <property name="javax.persistence.jdbc.password" value="zquVfVZljuNynoiZdHNncW6Zcb" />
+	 <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+	 <property name="hibernate.connection.shutdown" value="true" />
+	 <property name="hibernate.hbm2ddl.auto" value="update" />
+	 <property name="hibernate.show_sql" value="false" />
+	 <property name="hibernate.format_sql" value="false"/>
+	 </properties>
+
+ </persistence-unit>
 </persistence>
