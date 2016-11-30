@@ -3,14 +3,11 @@
     "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
   <session-factory>
-    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost/smartwaiterdb</property>
-    <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password"></property>
-    <property name="hibernate.connection.pool_size">10</property>
-    <property name="show_sql">true</property>
-    <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
-    <property name="hibernate.hbm2ddl.auto">update</property>
+    <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.username">etuweffihvejrr</property>
+        <property name="hibernate.connection.password">zquVfVZljuNynoiZdHNncW6Zcb</property>
+        <property name="hibernate.connection.url">jdbc:postgres://etuweffihvejrr:zquVfVZljuNynoiZdHNncW6Zcb@ec2-23-23-226-24.compute-1.amazonaws.com:5432/daao94omv9b2fn</property>
     <mapping class="com.concretepage.User"/>
    </session-factory>
 </hibernate-configuration>
