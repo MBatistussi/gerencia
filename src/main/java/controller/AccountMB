@@ -8,7 +8,7 @@ import javax.inject.Inject;
 
 import dao.EstabelecimentoDao;
 import domain.Estabelecimento;
-
+//hfhfhhf
 @ManagedBean
 @SessionScoped
 public class AccountMB {
